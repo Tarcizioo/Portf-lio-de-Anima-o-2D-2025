@@ -24,13 +24,22 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 0 2rem;
+  position: relative;
+}
+.right-side {
+  display: flex;
+  align-items: center;
+  gap: 2rem; /* Espaço entre o switch e os ícones */
 }
 
 .logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   background: red;
   color: white;
   padding: 0.5rem 1rem;
-  margin: 0 auto;
+  z-index: 1;
 }
 
 nav {
@@ -118,8 +127,9 @@ nav a {
 .gallery-grid img:hover {
   transform: scale(1.05);
 }
-
-
+.theme-switch {
+  margin-right: 1rem; /* Ajuste esse valor conforme o espaço desejado */
+}
 /* Botão switch */
 .switch {
   position: relative;
@@ -201,6 +211,6 @@ html {
   transition: color 0.3s ease;
 }
 
-.social-icon.instagram:hover svg {
+.social-icon:hover svg {
   color: #E4405F; /* Cor no hover (rosa Instagram) */
 }
