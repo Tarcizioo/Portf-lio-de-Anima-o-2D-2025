@@ -7,6 +7,29 @@ body.dark {
   background: #181a1b;
   color: #FEFEFE;
 }
+body.light .contact-section {
+  background-color: #FEFEFE;
+  color: #181a1b;
+}
+body.dark .contact-section {
+  background-color: #181a1b;
+  color: #FEFEFE;
+}
+
+body.light .contact-form input,
+body.light .contact-form textarea {
+  background-color: #fff;
+  color: #181a1b;
+  border: 1px solid #8700A9;
+}
+
+body.dark .contact-form input,
+body.dark .contact-form textarea {
+  background-color: #181a1b;
+  color: #FEFEFE;
+  border: 1px solid #8700A9;
+}
+
 
 /* Estrutura */
 body {
@@ -57,81 +80,6 @@ nav a:hover {
     transition: color 0.3s ease;
 
 }
-
-/* Grid dos GIFs */
-.gif-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Apenas 2 colunas fixas */
-  gap: 5px;
-  justify-content: center;
-  padding: 2rem;
-  max-width: 900px; /* Limita a largura total */
-  margin: 0 auto;   /* Centraliza horizontalmente */
-}
-
-.gif-card {
-  position: relative;
-  overflow: hidden;
-  border-radius: 8px;
-}
-
-.gif-card img {
-  width: 100%;
-  display: block;
-  transition: opacity 0.3s ease;
-}
-
-.gif-card .overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(50, 50, 50, 0.6);
-  color: white;
-  opacity: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: opacity 0.3s ease;
-  font-size: 1.5rem;
-  font-weight: bold;
-  text-align: center;
-}
-
-.gif-card:hover img {
-  opacity: 0.4;
-}
-
-.gif-card:hover .overlay {
-  opacity: 1;
-}
-
-/* Galeria de imagens */
-.gallery {
-  padding: 2rem;
-  text-align: center;
-}
-
-.gallery h2 {
-  margin-bottom: 1rem;
-}
-
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1rem;
-}
-
-.gallery-grid img {
-  width: 100%;
-  border-radius: 8px;
-  transition: transform 0.3s ease;
-}
-
-.gallery-grid img:hover {
-  transform: scale(1.05);
-}
 .theme-switch {
   margin-right: 1rem; /* Ajuste esse valor conforme o espaço desejado */
 }
@@ -180,13 +128,6 @@ input:checked + .slider {
 input:checked + .slider:before {
   transform: translateX(26px);
 }
-@media (max-width: 768px) {
-  .gif-grid {
-    grid-template-columns: 1fr;
-    max-width: 100%;
-    padding: 1rem;
-  }
-}
 #scrollTopBtn {
   position: fixed;
   bottom: 30px;
@@ -218,5 +159,64 @@ html {
 .social-icon:hover svg {
   color: #8700A9;
     transition: color 0.3s ease;
- /* Cor no hover (rosa Instagram) */
+}
+.contact-section {
+  padding: 50px 20px;
+  font-family: "DM Sans", sans-serif;
+}
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 900px;
+  margin: 0 auto;
+  gap: 40px;
+}
+.contact-form {
+  flex: 1 1 400px;
+}
+.contact-form h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+.contact-form form label {
+  display: block;
+  margin: 15px 0 5px;
+  font-weight: 600;
+}
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #8700A9;
+  border-radius: 4px;
+  font-size: 14px;
+}
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #aaa;
+}
+.contact-form button {
+  margin-top: 20px;
+  background-color: #8700A9;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.contact-form button:hover {
+  background-color: #8700A9;
+}
+
+.contact-info {
+  flex: 1 1 250px;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.contact-info .email {
+  color: #8700A9;
+  font-weight: bold;
 }
