@@ -54,3 +54,18 @@ const themeToggle = document.getElementById('theme-toggle');
   closeBtn.addEventListener("click", () => {
     sidebar.classList.remove("open");
   });
+  const mainToggle = document.getElementById('theme-toggle');
+const mobileToggle = document.getElementById('mobile-theme-toggle');
+
+mainToggle.addEventListener('change', () => {
+  document.body.classList.toggle('dark', mainToggle.checked);
+  document.body.classList.toggle('light', !mainToggle.checked);
+  mobileToggle.checked = mainToggle.checked;
+});
+
+mobileToggle.addEventListener('change', () => {
+  document.body.classList.toggle('dark', mobileToggle.checked);
+  document.body.classList.toggle('light', !mobileToggle.checked);
+  mainToggle.checked = mobileToggle.checked;
+});
+

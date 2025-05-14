@@ -18,6 +18,16 @@ header {
   text-align: center;
   padding: 1rem;
 }
+body.light .mobile-sidebar {
+  background-color: #FEFEFE;
+  color: #181a1b;
+}
+
+body.dark .mobile-sidebar {
+  background-color: #181a1b;
+  color: #FEFEFE;
+}
+
 
 .top-bar {
   display: flex;
@@ -218,9 +228,8 @@ html {
 .social-icon:hover svg {
   color: #8700A9;
     transition: color 0.3s ease;
- /* Cor no hover (rosa Instagram) */
 }
-/* Oculta menu e sidebar por padrão em telas grandes */
+/* oculta a side bar para tela maiores */
 .menu-toggle {
   display: none;
   position: absolute;
