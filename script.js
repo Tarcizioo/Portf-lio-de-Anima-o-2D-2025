@@ -43,3 +43,14 @@ const themeToggle = document.getElementById('theme-toggle');
       behavior: "smooth"
     });
   });
+  const toggleBtn = document.getElementById("menuToggle");
+  const sidebar = document.getElementById("mobileSidebar");
+  const closeBtn = document.getElementById("closeSidebar");
+
+  toggleBtn.addEventListener("click", () => {
+    sidebar.classList.add("open");
+  });
+
+  closeBtn.addEventListener("click", () => {
+    sidebar.classList.remove("open");
+  });
