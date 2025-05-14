@@ -57,15 +57,20 @@ const themeToggle = document.getElementById('theme-toggle');
   const mainToggle = document.getElementById('theme-toggle');
 const mobileToggle = document.getElementById('mobile-theme-toggle');
 
+function updateTheme(isDark) {
+  document.body.classList.toggle('dark', isDark);
+  document.body.classList.toggle('light', !isDark);
+  mainToggle.checked = isDark;
+  mobileToggle.checked = isDark;
+  localStorage.setItem('theme', isDark ? 'dark' : 'light');
+}
+
 mainToggle.addEventListener('change', () => {
-  document.body.classList.toggle('dark', mainToggle.checked);
-  document.body.classList.toggle('light', !mainToggle.checked);
-  mobileToggle.checked = mainToggle.checked;
+  updateTheme(mainToggle.checked);
 });
 
 mobileToggle.addEventListener('change', () => {
-  document.body.classList.toggle('dark', mobileToggle.checked);
-  document.body.classList.toggle('light', !mobileToggle.checked);
-  mainToggle.checked = mobileToggle.checked;
+  updateTheme(mobileToggle.checked);
 });
+
 
