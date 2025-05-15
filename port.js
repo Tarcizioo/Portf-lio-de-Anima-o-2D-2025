@@ -1,5 +1,7 @@
 const mainToggle = document.getElementById('theme-toggle');
 const mobileToggle = document.getElementById('mobile-theme-toggle');
+const modalContainer = document.getElementById("gif-modal");
+
 const body = document.body;
 
 const savedTheme = localStorage.getItem('theme');
@@ -9,6 +11,8 @@ function applytheme(isDark){
     body.classList.toggle("dark", isDark);
     body.classList.toggle("light", !isDark);
     document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+    modalContainer.classList.toggle("dark", isDark);
+    modalContainer.classList.toggle("light", !isDark);
     mainToggle.checked = isDark;
     mobileToggle.checked = isDark;
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
@@ -93,13 +97,21 @@ const gifData = {
         }
         );
         modal.classList.remove("hidden");
+        void modal.offsetWidth; // Trigger reflow
+        modal.classList.add("active");
     });
 });
 closeBtn.addEventListener("click", () => {
-    modal.classList.add("hidden");
+    modal.classList.add("active");
+    setTimeout(() => {
+        modal.classList.add("hidden");
+    }, 300); // Match the CSS transition duration
 });
 modal.addEventListener("click", (e) => {
     if (e.target === modal) {
-        modal.classList.add("hidden");
+        modal.classList.remove("active");
+    setTimeout(() => {
+      modal.classList.add("hidden");
+    }, 300);
     }
 });

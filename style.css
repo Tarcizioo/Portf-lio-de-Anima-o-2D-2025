@@ -307,22 +307,36 @@ html {
 }
 .modal {
   position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.8);
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 9999;
+  background-color: rgba(0, 0, 0, 0.6);
+
+  opacity: 0;
+  transform: scale(0.95);
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-.hidden {
+.modal.active {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+
+.modal.hidden {
   display: none;
 }
 
 /* CAIXA DO MODAL */
 .modal-content {
-  background: #111;
-  color: white;
+  background-color: var(--modal-bg);
+  color: var(--modal-text);
   display: flex;
   flex-direction: row;
   padding: 2rem;
@@ -332,6 +346,7 @@ html {
   max-height: 90%;
   overflow: auto;
 }
+
 
 #modal-gif {
   max-width: 50%;
@@ -344,28 +359,30 @@ html {
 :root {
   --modal-bg: #fff;
   --modal-text: #000;
+  --tag-text: #000;
 }
 
 .dark {
   --modal-bg: #111;
   --modal-text: #f4f4f4;
+  --tag-text: #fff;
 }
-
 
 .modal-details {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  color: #fff;
+  color: var(--modal-text);
   max-width: 40%;
 }
+
 
 .close-btn {
   position: absolute;
   top: 2rem;
   right: 2rem;
   font-size: 2rem;
-  color: #fff;
+  color: var(--modal-text);
   cursor: pointer;
 }
 
@@ -381,24 +398,25 @@ html {
   border-radius: 0.75rem;
   font-size: 0.85rem;
   font-weight: 500;
-  color: #fff;
+  color: var(--tag-text);
   border: 1px solid #8700A9;  
   background-color: transparent;
   box-shadow: 0 0 5px #8700A9, 0 0 10px #8700A9;
   text-shadow: 0 0 3px #8700A9;
 }
 
-
 @media (max-width: 768px) {
   .modal-content {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 1.5rem;
+    padding: 1.3rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
   }
 
   #modal-gif {
-    max-width: 90%;
+    max-width: 100%;
   }
 
   .modal-details {
