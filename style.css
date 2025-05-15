@@ -169,6 +169,7 @@ nav a:hover {
   right: 0;
   bottom: 0;
   border-radius: 24px;
+  font-size: 1rem;
 }
 
 .slider:before {
@@ -304,3 +305,112 @@ html {
     display: block;
   }
 }
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.hidden {
+  display: none;
+}
+
+/* CAIXA DO MODAL */
+.modal-content {
+  background: #111;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  padding: 2rem;
+  border-radius: 12px;
+  gap: 2rem;
+  max-width: 90%;
+  max-height: 90%;
+  overflow: auto;
+}
+
+#modal-gif {
+  max-width: 50%;
+  height: auto;
+  border-radius: 0.5rem;
+  object-fit: contain;
+  background-color: var(--modal-bg);
+  color: var(--modal-text);
+}
+:root {
+  --modal-bg: #fff;
+  --modal-text: #000;
+}
+
+.dark {
+  --modal-bg: #111;
+  --modal-text: #f4f4f4;
+}
+
+
+.modal-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #fff;
+  max-width: 40%;
+}
+
+.close-btn {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+.tags {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tags span {
+  padding: 0.4rem 0.8rem;
+  border-radius: 0.75rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #fff;
+  border: 1px solid #8700A9;  
+  background-color: transparent;
+  box-shadow: 0 0 5px #8700A9, 0 0 10px #8700A9;
+  text-shadow: 0 0 3px #8700A9;
+}
+
+
+@media (max-width: 768px) {
+  .modal-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1.5rem;
+  }
+
+  #modal-gif {
+    max-width: 90%;
+  }
+
+  .modal-details {
+    max-width: 100%;
+  }
+
+  .close-btn {
+    top: 1rem;
+    right: 1rem;
+  }
+}
+.hidden {
+  display: none;
+}
+

@@ -38,11 +38,68 @@ scrollTopBtn.addEventListener("click", () => {
 
 const toggleBtn = document.getElementById("menuToggle");
 const sidebar = document.getElementById("mobileSidebar");
-const closeBtn = document.getElementById("closeSidebar");
+const closeSidebarBtn = document.getElementById("closeSidebar");
 
 toggleBtn.addEventListener("click", () => {
     sidebar.classList.add("open");
 });
-closeBtn.addEventListener("click", () => {
+closeSidebarBtn.addEventListener("click", () => {
     sidebar.classList.remove("open");
+});
+
+const modal = document.getElementById("gif-modal");
+const modalGif = document.getElementById("modal-gif");
+const modalTitle = document.getElementById("modal-title");
+const modalDescription = document.getElementById("modal-description");
+const modalTags = document.getElementById("modal-tags");
+const modalDesc = document.getElementById("modal-description");
+
+const closeBtn = document.querySelector(".close-btn");
+
+const gifData = {
+    "Título 1": {
+      description: "Projeto feito para estudar loops e animações com Krita.",
+      tools: ["Krita", "After Effects", "Photoshop"]
+    },
+    "Título 2": {
+      description: "Animação experimental usando máscaras e iluminação.",
+      tools: ["After Effects", "Illustrator"]
+    },
+    "Título 3": {
+      description: "Loop simples feito no Photoshop para treino de tempo.",
+      tools: ["Photoshop"]
+    },
+    "Título 4": {
+      description: "Projeto com foco em expressão facial.",
+      tools: ["Krita", "Toon Boom"]
+    }
+  };
+
+  document.querySelectorAll(".gif-card").forEach(card => {
+    card.addEventListener("click", () => {
+        const img = card.querySelector("img");
+        const title = card.querySelector("span").textContent;
+
+        modalGif.src = img.src;
+        modalTitle.textContent = title;
+        modalDesc.textContent = gifData[title].description || "Descrição não disponível.";
+
+        modalTags.innerHTML = "";
+
+        (gifData[title].tools || []).forEach(tool => {
+            const tag = document.createElement("span");
+            tag.textContent = tool;
+            modalTags.appendChild(tag);
+        }
+        );
+        modal.classList.remove("hidden");
+    });
+});
+closeBtn.addEventListener("click", () => {
+    modal.classList.add("hidden");
+});
+modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+        modal.classList.add("hidden");
+    }
 });
